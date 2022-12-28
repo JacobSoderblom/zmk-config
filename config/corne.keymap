@@ -51,7 +51,6 @@
 / {
 
     behaviors {
-        #include "behaviors_mod_morph.dtsi"
 
         shft_caps: tap_dance_shift_caps_lock_toggle {
             compatible = "zmk,behavior-tap-dance";
