@@ -38,12 +38,9 @@
 #define xxx &none
 #define ___ &trans
 
-#define L_ZMK       8  // ZMK layer
-
 // Go to ZMK layer when holding TAB key
 // On tap: TAB
 // On hold: L_ZMK (ZMK layer)
-#define TAB_L_ZMK  &lt L_ZMK TAB
 
 // https://zmk.dev/docs/features/debouncing
 &kscan0 {
@@ -75,7 +72,7 @@
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ALT |
 //                    | GUI | LWR | ENT |   | SPC | BKSP  | RSE |
                         bindings = <
-   TAB_L_ZMK &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
+   &kp TAB &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
    &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RALT
                     &kp LGUI &mo 1 &kp RET   &kp SPACE &kp BSPC &mo 2
@@ -107,20 +104,6 @@
    &trans     &kp C_PREV    &kp C_NEXT   &kp C_VOL_DN &kp C_VOL_UP &kp C_PP        &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
    &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans   &trans   &trans &trans    &trans &trans
                           	                        &trans   &trans   &trans       &trans   &trans   &trans
-                        >;
-                };
-
-        zmk_layer {
-// -----------------------------------------------------------------------------------------
-// | XXX  | BT 0  | BT 1   | BT 2   | BT 3   | BT 4   |        |       |           |           |      |      |      |
-// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SI WIN | To SI WIN |      |      |      |
-// |      |       |        |        |        | Bootl  |        |       |           |           |      |      |      |
-//                         |        |        |        |        |       |           |           |
-            bindings = <
-   xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
-   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           &to US_BASE &to SI_BASE_LIN &to SI_BASE_WIN xxx xxx xxx
-   xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
-                                 xxx              xxx               xxx              xxx         xxx             xxx
                         >;
                 };
         };
