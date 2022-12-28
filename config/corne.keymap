@@ -10,6 +10,7 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include "keys_se.h"
 
+/*
  ***************************************************************************************************
  * ZMK layer:
  ***************************************************************************************************
@@ -33,7 +34,7 @@
  * - `To SI Linux`: Switch keyboard layout to match SI host layout, Linux host
  * - `To SI Win`: Switch keyboard layout to match SI host layout, Windows host
  * - `EP OFF`: Disable external power (disable VCC power output)
-
+*/
 
 #define xxx &none
 #define ___ &trans
