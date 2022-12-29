@@ -1,0 +1,130 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include "keys_se.h"
+
+/*
+ ***************************************************************************************************
+ * ZMK layer:
+ ***************************************************************************************************
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | XXX    | BT 0   | BT 1   | BT 2   | BT 3   | BT 4   |             |        |        |        |        |        |        |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  |        | BT CLR |        | EP ON  | EP OFF | Reset  |             | To US  | To SE  | To SE  |        |        |        |
+ *  |        |        |        |        |        |        |             |        | Linux  | Win    |        |        |        |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  |        |        |        |        |        | Bootl  |             |        |        |        |        |        |        |
+ *  +--------+--------+--------+----+---+----+---+----+---+----+   +----+---+----+---+----+---+----+--------+--------+--------+
+ *                                  |        |        |        |   |        |        |        |
+ *                                  +--------+--------+--------+   +--------+--------+--------+
+ *
+ * - `BT 0-4`: Select the x bluetooth profile
+ * - `BT CLR`: Clear bond between the keyboard and the host for the selected profile
+ * - `Reset`: Reset this side of the keyboard
+ * - `Bootl`: Reset this side of the keyboard to bootloader mode
+ * - `EP ON`: Enable external power (enable VCC power output)
+ * - `To US`: Switch keyboard layout to match US host layout
+ * - `To SE Linux`: Switch keyboard layout to match SE host layout, Linux host
+ * - `To SE Win`: Switch keyboard layout to match SE host layout, Windows host
+ * - `EP OFF`: Disable external power (disable VCC power output)
+*/
+
+#define xxx &none
+#define ___ &trans
+
+#define SE_BASE_LIN 0  // Base layer, host layout: SE, Linux host
+#define SE_BASE_WIN 1  // Base layer, host layout: SE, Windows host
+#define US_BASE     2  // Base layer, host layout: US
+#define SE_SYM_LIN  3  // Symbols layer, host layout: SE, Linux host
+#define SE_SYM_WIN  4  // Symbols layer, host layout: SE, Windows host
+#define US_SYM      5  // Symbols layer, host layout: US
+#define L_EXT1      6  // Extend layer 1
+#define L_EXT2      7  // Extend layer 2
+#define L_ZMK       8  // ZMK layer
+
+// Go to ZMK layer when holding TAB key
+// On tap: TAB
+// On hold: L_ZMK (ZMK layer)
+#define TAB_L_ZMK  &lt L_ZMK TAB
+
+// https://zmk.dev/docs/features/debouncing
+&kscan0 {
+    debounce-press-ms = <1>;    // Default is 5 ms
+    debounce-release-ms = <4>;  // Default is 5 ms
+};
+
+/ {
+
+    behaviors {
+
+        shft_caps: tap_dance_shift_caps_lock_toggle {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAB_DANCE_SHIFT_CAPS_LOCK_TOGGLE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kp CAPS>;
+        };
+    };
+    
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer_se_lin {
+// -----------------------------------------------------------------------------------------
+// | TAB  |  Q  |  W  |  E  |  R   |  T  |    |  Y  |  U   |  I  |  O  |  P  | = +  |
+// | EXT1 |  A  |  S  |  D  |  F   |  G  |    |  H  |  J   |  K  |  L  |  ?  | ' "  |
+// | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
+//                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
+            bindings = <
+   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P    &kp SE_P
+   &mo L_EXT1 &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O    &kp SE_P
+   &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_V  &kp SE_B    &kp SR_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
+                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo SE_SYM_LIN
+            >;
+        };
+
+        base_layer_si_win {
+            bindings = <
+   ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
+   ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
+   ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
+               ___ ___ ___   ___ &mo SE_SYM_WIN ___
+            >;
+        };
+
+        base_layer_us {
+// -----------------------------------------------------------------------------------------
+// | TAB  |  Q  |  W  |  E  |  R   |  T  |    |  Y  |  U   |  I  |  O  |  P  | = +  |
+// | EXT1 |  A  |  S  |  D  |  F   |  G  |    |  H  |  J   |  K  |  L  |  O  | ' "  |
+// | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
+//                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
+            bindings = <
+   TAB_L_ZMK  &kp Q &kp W &kp E    &kp R     &kp T       &kp Y   &kp U      &kp I       &kp O   &kp P    &kp EQUAL
+   &mo L_EXT1 &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
+   &shft_caps &kp Z &kp X &kp C    &kp V     &kp B       &kp N   &kp M      &kp COMMA   &kp DOT &kp FSLH &kp LALT
+                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo US_SYM
+            >;
+        };
+        
+        zmk_layer {
+// -----------------------------------------------------------------------------------------
+// | XXX  | BT 0  | BT 1   | BT 2   | BT 3   | BT 4   |        |       |           |           |      |      |      |
+// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SI WIN | To SI WIN |      |      |      |
+// |      |       |        |        |        | Bootl  |        |       |           |           |      |      |      |
+//                         |        |        |        |        |       |           |           |
+            bindings = <
+   xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
+   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           xxx         xxx             xxx             xxx xxx xxx
+   xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
+                                 xxx              xxx               xxx              xxx         xxx             xxx
+            >;
+        };
+    };
+};
