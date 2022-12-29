@@ -42,7 +42,12 @@
 #define SE_BASE_LIN 0  // Base layer, host layout: SE, Linux host
 #define SE_BASE_WIN 1  // Base layer, host layout: SE, Windows host
 #define US_BASE     2  // Base layer, host layout: US
-#define L_ZMK       3  // ZMK layer
+#define SE_SYM_LIN  3  // Symbols layer, host layout: SE, Linux host
+#define SE_SYM_WIN  4  // Symbols layer, host layout: SE, Windows host
+#define US_SYM      5  // Symbols layer, host layout: US
+#define L_EXT1      6  // Extend layer 1
+#define L_EXT2      7  // Extend layer 2
+#define L_ZMK       8  // ZMK layer
 
 // Go to ZMK layer when holding TAB key
 // On tap: TAB
@@ -69,7 +74,6 @@
     };
     
     keymap {
-    
         compatible = "zmk,keymap";
 
         base_layer_se_lin {
@@ -79,10 +83,10 @@
 // | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
 //                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
             bindings = <
-   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E  &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P    &kp SE_P
-   &mo L_ZMK  &kp SE_A &kp SE_S &kp SE_D  &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O    &kp SE_P
-   &shft_caps &kp SE_Z &kp SE_X &kp SE_C  &kp SE_V  &kp SE_B    &kp SR_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
-                                &kp LGUI  &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo L_ZMK
+   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P    &kp SE_P
+   &mo L_EXT1 &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O    &kp SE_P
+   &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_V  &kp SE_B    &kp SR_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
+                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo SE_SYM_LIN
             >;
         };
 
@@ -103,9 +107,9 @@
 //                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
             bindings = <
    TAB_L_ZMK  &kp Q &kp W &kp E    &kp R     &kp T       &kp Y   &kp U      &kp I       &kp O   &kp P    &kp EQUAL
-   &mo L_ZMK  &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
+   &mo L_EXT1 &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
    &shft_caps &kp Z &kp X &kp C    &kp V     &kp B       &kp N   &kp M      &kp COMMA   &kp DOT &kp FSLH &kp LALT
-                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo L_ZMK
+                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo US_SYM
             >;
         };
         
