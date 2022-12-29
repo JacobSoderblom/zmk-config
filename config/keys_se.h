@@ -83,7 +83,7 @@
 #define SE_B    B    // B
 #define SE_N    N    // N
 #define SE_M    M    // M
-#define SE_COMM COMM // ,
+#define SE_COMM COMMA // ,
 #define SE_DOT  DOT  // .
 #define SE_MINS FSLH // -
 
