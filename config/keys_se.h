@@ -35,6 +35,7 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
+#define SE_SECT GRAVE   // §
 #define SE_N1 N1        // 1
 #define SE_N2 N2        // 2
 #define SE_N3 N3        // 3
@@ -100,6 +101,7 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
+#define SE_HALF S(SE_SECT) // ½
 #define SE_EXLM S(SE_1)    // !
 #define SE_DQUO S(SE_2)    // "
 #define SE_HASH S(SE_3)    // #
