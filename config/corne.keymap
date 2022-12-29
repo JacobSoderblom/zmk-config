@@ -39,9 +39,20 @@
 #define xxx &none
 #define ___ &trans
 
+#define SE_BASE_LIN 0  // Base layer, host layout: SE, Linux host
+#define SE_BASE_WIN 1  // Base layer, host layout: SE, Windows host
+#define US_BASE     2  // Base layer, host layout: US
+#define SE_SYM_LIN  3  // Symbols layer, host layout: SE, Linux host
+#define SE_SYM_WIN  4  // Symbols layer, host layout: SE, Windows host
+#define US_SYM      5  // Symbols layer, host layout: US
+#define L_EXT1      6  // Extend layer 1
+#define L_EXT2      7  // Extend layer 2
+#define L_ZMK       8  // ZMK layer
+
 // Go to ZMK layer when holding TAB key
 // On tap: TAB
 // On hold: L_ZMK (ZMK layer)
+#define TAB_L_ZMK  &lt L_ZMK TAB
 
 // https://zmk.dev/docs/features/debouncing
 &kscan0 {
@@ -63,48 +74,35 @@
     };
     
     keymap {
-                compatible = "zmk,keymap";
+    
+        compatible = "zmk,keymap";
 
-                default_layer {
+        base_layer_se_lin {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | ESC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ALT |
-//                    | GUI | LWR | ENT |   | SPC | BKSP  | RSE |
-                        bindings = <
-   &kp TAB &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp ESC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RALT
-                    &kp LGUI &mo 1 &kp RET   &kp SPACE &kp BSPC &mo 2
-                        >;
-                };
-
-                layer_below {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  \   |
-// | CTRL |  1  |  2  |  3  |  4  |  5  |   |  -  |  =  |  `  |  [  |  ]  |  "|" |
-// | SHFT |  6  |  7  |  8  |  9  |  0  |   |  _  |  +  |  ~  |  {  |  }  |      |
-//                    | GUI |     | Ent |   | SPACE | BKSP |    |
-                        bindings = <
-   &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET  &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSLH
-   &kp LCTRL &kp N1   &kp N2 &kp N3   &kp N4   &kp N5      &kp MINUS  &kp EQUAL &kp GRAVE       &kp LBKT &kp RBKT &kp PIPE
-   &shft_caps &kp N6   &kp N7 &kp N8   &kp N9   &kp N0      &kp UNDER  &kp PLUS  &kp TILDE       &kp LBRC &kp RBRC &trans
-                    	       &kp LGUI &trans   &kp RET     &kp SPACE  &kp BSPC  &trans
-                        >;
-                };
-
-                layer_above {
-// -----------------------------------------------------------------------------------------
-// |       |  F1  |  F2  |  F3  |  F4  |  F5 |            |  F6  |  F7  |  F8  |  F9  |  F10  |   |
-// |       | Prev | Next | Vol - | Vol + | Play/Pause |   |      | LFT | DWN |  UP | RGT |     |     |
-// | BTCLR | BT1 | BT2 | BT3 | BT4 | BT5 |   |            |     |     |     |     |     |     |
-//                    |     |     |    |                  |     |     |     |
-                        bindings = <
-   &trans     &kp F1        &kp F2       &kp F3       &kp F4       &kp F5          &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &trans
-   &trans     &kp C_PREV    &kp C_NEXT   &kp C_VOL_DN &kp C_VOL_UP &kp C_PP        &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &bt BT_CLR &bt BT_SEL 0  &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4    &trans   &trans   &trans &trans    &trans &trans
-                          	                        &trans   &trans   &trans       &trans   &trans   &trans
-                        >;
-                };
+// | TAB  |  Q  |  W  |  E  |  R   |  T  |    |  Y  |  U   |  I  |  O  |  P  | = +  |
+// | EXT1 |  A  |  S  |  D  |  F   |  G  |    |  H  |  J   |  K  |  L  |  ?  | ' "  |
+// | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
+//                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
+            bindings = <
+   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P &si_equal
+   &mo L_EXT1 &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O &si_sqt
+   &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_V  &kp SE_B    &kp SR_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
+                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo SE_SYM_LIN
+            >;
         };
+        
+        zmk_layer {
+// -----------------------------------------------------------------------------------------
+// | XXX  | BT 0  | BT 1   | BT 2   | BT 3   | BT 4   |        |       |           |           |      |      |      |
+// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SI WIN | To SI WIN |      |      |      |
+// |      |       |        |        |        | Bootl  |        |       |           |           |      |      |      |
+//                         |        |        |        |        |       |           |           |
+            bindings = <
+   xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
+   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           &to US_BASE &to SE_BASE_LIN &to SE_BASE_WIN xxx xxx xxx
+   xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
+                                 xxx              xxx               xxx              xxx         xxx             xxx
+            >;
+        };
+    };
 };
