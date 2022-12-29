@@ -84,9 +84,9 @@
 //                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
             bindings = <
    TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P    &kp SE_P
-   &mo L_EXT1 &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O    &kp SE_P
+   &mo L_ZMK  &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SI_O    &kp SE_P
    &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_V  &kp SE_B    &kp SR_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
-                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo SE_SYM_LIN
+                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo L_ZMK
             >;
         };
 
@@ -107,9 +107,9 @@
 //                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
             bindings = <
    TAB_L_ZMK  &kp Q &kp W &kp E    &kp R     &kp T       &kp Y   &kp U      &kp I       &kp O   &kp P    &kp EQUAL
-   &mo L_EXT1 &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
+   &mo L_ZMK  &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
    &shft_caps &kp Z &kp X &kp C    &kp V     &kp B       &kp N   &kp M      &kp COMMA   &kp DOT &kp FSLH &kp LALT
-                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo US_SYM
+                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo L_ZMK
             >;
         };
         
