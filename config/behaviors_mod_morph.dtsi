@@ -5,7 +5,7 @@ se_semi: si-semicolon-colon {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_SEMI_COLO";
   #binding-cells = <0>;
-  bindings = <&kp SE_SEMI>, <&kp SE_COLON>;
+  bindings = <&kp SE_SCLN>, <&kp SE_COLN>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
