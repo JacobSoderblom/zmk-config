@@ -2,15 +2,68 @@
  * Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
- */
-
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
-#include "keys_se.h"
-
-/*
+ *
+ * Credits to https://github.com/bzgec/zmk-config
+ *
+ ***************************************************************************************************
+ * Swedish Colemak-DH angle mode variation
+ ***************************************************************************************************
+ * Host layout: SE
+ * Host layout: US (missing Å, Ä, Ö)
+ *
+ ***************************************************************************************************
+ * Base layer:
+ ***************************************************************************************************
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | TAB    |  q  Q  |  w  W  |  f  F  |  p  P  |  b  B  |             |  j  J  |  l  L  |  u  U  |  y  Y  |  ö  Ö  |  å  Å  |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | EXT1   |  a  A  |  r  R  |  s  S  |  t  T  |  g  G  |             |  m  M  |  n  N  |  e  E  |  i  I  |  o  O  |  ä  Ä  |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | Shift  |  z  Z  |  x  X  |  c  C  |  d  D  |  v  V  |             |  k  K  |  h  H  |  ,  ;  |  .  :  |  -  _  | Shift  |
+ *  +--------+--------+--------+----+---+----+---+----+---+----+   +----+---+----+---+----+---+----+--------+--------+--------+
+ *                                  | Win    | Ctrl   | Space  |   | Enter  | SYM    | L Alt  |
+ *                                  +--------+--------+--------+   +--------+--------+--------+
+ *
+ ***************************************************************************************************
+ * Symbols layer:
+ ***************************************************************************************************
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | TAB    |  1  !  |  2  @  |  3  #  |  4  $  |  5  %  |             |  6  ^  |  7  &  |  8  *  |  9  (  |  0  )  |  -  _  |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | EXT2   |        |        |        |        |        |             |        |        |  €  °  |  [  {  |  ]  }  |  `  ~  |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | Shift  |        |        |        |        |        |             |        |        |        |        |  \  |  | Shift  |
+ *  +--------+--------+--------+----+---+----+---+----+---+----+   +----+---+----+---+----+---+----+--------+--------+--------+
+ *                                  | Win    | Ctrl   | Space  |   | Enter  | XXX    | L Alt  |
+ *                                  +--------+--------+--------+   +--------+--------+--------+
+ *
+ ***************************************************************************************************
+ * Extend layer 1:
+ ***************************************************************************************************
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | TAB    | ESC    | WhUp   | GoBack | GoFwd  |        |             | Home   | PgDn   | PgUp   | End    | Del    | Print  |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | XXX    | Back   | WhDown |        |        |        |             | Left   | Down   | Up     | Right  | Back   | ESC    |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | Shift  |        |        |        |        |        |             | Undo   | Redo   |        |        |        | Shift  |
+ *  +--------+--------+--------+----+---+----+---+----+---+----+   +----+---+----+---+----+---+----+--------+--------+--------+
+ *                                  | Win    | Ctrl   | Enter  |   | Enter  | EXT2   | L Alt  |
+ *                                  +--------+--------+--------+   +--------+--------+--------+
+ *
+ ***************************************************************************************************
+ * Extend layer 2:
+ ***************************************************************************************************
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | TAB    | F1     | F2     | F3     | F4     | F5     |             | F6     | F7     | F8     | F9     | F10    |        |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | XXX    |        |        |        |        |        |             | Vol    | Vol Dn | Vol Up | F11    | F12    |        |
+ *  |        |        |        |        |        |        |             | Mute   |        |        |        |        |        |
+ *  +--------+--------+--------+--------+--------+--------+             +--------+--------+--------+--------+--------+--------+
+ *  | Shift  |        |        |        |        |        |             |        | Bri Dn | Bri Up |        |        | Shift  |
+ *  +--------+--------+--------+----+---+----+---+----+---+----+   +----+---+----+---+----+---+----+--------+--------+--------+
+ *                                  | Win    | Ctrl   | Enter  |   | Enter  | XXX    | L Alt  |
+ *                                  +--------+--------+--------+   +--------+--------+--------+
+ *
  ***************************************************************************************************
  * ZMK layer:
  ***************************************************************************************************
@@ -34,7 +87,26 @@
  * - `To SE Linux`: Switch keyboard layout to match SE host layout, Linux host
  * - `To SE Win`: Switch keyboard layout to match SE host layout, Windows host
  * - `EP OFF`: Disable external power (disable VCC power output)
-*/
+ *
+ ***************************************************************************************************
+ * Notes:
+ ***************************************************************************************************
+ * - EXT2 layer is accessible when pressing: 'EXT' + 'SYM'
+ * - ZMK layer is accessible when holding TAB key
+ * - Double tap on SHIFT key toggles CAPS_LOCK
+ * - Difference between "SE Linux" and "SE Windows" is in how a few special characters
+ *   are implemented but for the end use there should be no difference
+ *
+ *   - `se_n6_lin`    -> `se_n6_win` (`^`)
+ *   - `se_grave_lin` -> `se_grave_win` (`\``, `~`)
+ *
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include "keys_se.h"
 
 #define xxx &none
 #define ___ &trans
@@ -63,6 +135,7 @@
 / {
 
     behaviors {
+        #include "behaviors_mod_morph.dtsi"
 
         shft_caps: tap_dance_shift_caps_lock_toggle {
             compatible = "zmk,behavior-tap-dance";
@@ -76,52 +149,121 @@
     keymap {
         compatible = "zmk,keymap";
 
-        base_layer_se_lin {
+base_layer_se_lin {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  E  |  R   |  T  |    |  Y  |  U   |  I  |  O  |  P  | = +  |
-// | EXT1 |  A  |  S  |  D  |  F   |  G  |    |  H  |  J   |  K  |  L  |  ?  | ' "  |
-// | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
-//                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
+// | TAB  |  Q  |  W  |  F  |  P   |  B  |    |  J  |  L   |  U  |  Y  |  Ö  |  Å   |
+// | EXT1 |  A  |  R  |  S  |  T   |  G  |    |  M  |  N   |  E  |  I  |  O  |  Ä   |
+// | SHFT |  Z  |  X  |  C  |  D   |  V  |    |  K  |  H   | , ; | . : | - _ | SHFT |
+//                    | GUI | CTRL | SPC |    | ENT | SYM  | ALT |
             bindings = <
-   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_E &kp SE_R  &kp SE_T    &kp SE_Y &kp SE_U  &kp SE_I        &kp SE_O   &kp SE_P    &kp SE_P
-   &mo L_ZMK  &kp SE_A &kp SE_S &kp SE_D &kp SE_F  &kp SE_G    &kp SE_H &kp SE_J  &kp SE_K        &kp SE_L   &kp SE_O    &kp SE_P
-   &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_V  &kp SE_B    &kp SE_N &kp SE_M  &kp SE_COMM     &kp SE_DOT &kp SE_MINS &kp LALT
-                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BSPC  &mo L_ZMK
+   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_F &kp SE_P  &kp SE_B    &kp SE_J &kp SE_L       &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
+   &mo L_EXT1 &kp SE_A &kp SE_R &kp SE_S &kp SE_T  &kp SE_G    &kp SE_M &kp SE_N       &kp SE_E    &kp SE_I   &kp SE_O     &kp SE_ADIA
+   &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_D  &kp SE_V    &kp SE_K &kp SE_H       &kp SE_COMM &kp SE_DOT &kp SE_MINUS &shft_caps
+                                &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &mo SE_SYM_LIN &kp LALT
             >;
         };
 
-        base_layer_si_win {
+        base_layer_se_win {
             bindings = <
    ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
    ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
    ___ ___ ___ ___ ___ ___   ___ ___            ___ ___ ___ ___
-               ___ ___ ___   ___ &mo L_ZMK      ___
+               ___ ___ ___   ___ &mo SE_SYM_WIN ___
             >;
         };
+
 
         base_layer_us {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  E  |  R   |  T  |    |  Y  |  U   |  I  |  O  |  P  | = +  |
-// | EXT1 |  A  |  S  |  D  |  F   |  G  |    |  H  |  J   |  K  |  L  |  O  | ' "  |
-// | SHFT |  Z  |  X  |  C  |  V   |  B  |    |  N  |  M   | , < | . > | / ? | ALT  |
-//                    | GUI | CTRL | SPC |    | ENT | BACK | SYM |
+// | TAB  |  Q  |  W  |  F  |  P   |  B  |    |  J  |  L   |  U  |  Y  | ; : | = +  |
+// | EXT1 |  A  |  R  |  S  |  T   |  G  |    |  M  |  N   |  E  |  I  |  O  | ' "  |
+// | SHFT |  Z  |  X  |  C  |  D   |  V  |    |  K  |  H   | , < | . > | / ? | SHFT |
+//                    | GUI | CTRL | SPC |    | ENT | SYM  | ALT |
             bindings = <
-   TAB_L_ZMK  &kp Q &kp W &kp E    &kp R     &kp T       &kp Y   &kp U      &kp I       &kp O   &kp P    &kp EQUAL
-   &mo L_ZMK  &kp A &kp S &kp D    &kp F     &kp G       &kp H   &kp J      &kp K       &kp L   &kp O    &kp SQT
-   &shft_caps &kp Z &kp X &kp C    &kp V     &kp B       &kp N   &kp M      &kp COMMA   &kp DOT &kp FSLH &kp LALT
-                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &kp BSPC   &mo L_ZMK
+   TAB_L_ZMK  &kp Q &kp W &kp F    &kp P     &kp B       &kp J   &kp L      &kp U     &kp Y   &kp SEMI &kp EQUAL
+   &mo L_EXT1 &kp A &kp R &kp S    &kp T     &kp G       &kp M   &kp N      &kp E     &kp I   &kp O    &kp SQT
+   &shft_caps &kp Z &kp X &kp C    &kp D     &kp V       &kp K   &kp H      &kp COMMA &kp DOT &kp FSLH &shft_caps
+                          &kp LGUI &kp LCTRL &kp SPACE   &kp RET &mo US_SYM &kp LALT
             >;
         };
-        
+
+        sym_layer_se_linux {
+// ----------------------------------------------------------------------------------------
+// | TAB  | 1 ! | 2 @ | 3 # | 4 $ | 5 % |    | 6 ^ | 7 & | 8 * | 9 ( | 0 ) | - _  |
+// | EXT2 |     |     |     |     |     |    |     |     | € ° | [ { | ] } | ` ~  |
+// | SHFT |     |     |     |     |     |    |     |     |     |     | \ | | SHFT |
+//                    | GUI |     | SPC |    | ENT | XXX | ALT |
+            bindings = <
+   ___        &kp SE_N1   &se_n2 &kp SE_N3   &kp SE_N4 &kp SE_N5      &se_n6_lin &se_n7 &se_n8   &se_n9   &se_n0   &kp SE_MINUS
+   &mo L_EXT2 xxx         xxx    xxx         xxx       xxx            xxx        xxx    &se_euro &se_lbkt &se_rbkt &se_grave_lin
+   ___        xxx         xxx    xxx         xxx       xxx            xxx        xxx    xxx      xxx      &se_bslh ___
+                                 ___         ___       ___            ___        xxx    ___
+            >;
+        };
+        // Changing only
+        // - `&se_n6_lin`    -> `&se_n6_win`
+        // - `&se_grave_lin` -> `&se_grave_win`
+        sym_layer_se_win {
+            bindings = <
+   ___        &kp SE_N1   &se_n2 &kp SE_N3   &kp SE_N4 &kp SE_N5      &se_n6_win &se_n7 &se_n8   &se_n9   &se_n0   &kp SE_MINUS
+   &mo L_EXT2 xxx         xxx    xxx         xxx       xxx            xxx        xxx    &se_euro &se_lbkt &se_rbkt &se_grave_win
+   ___        xxx         xxx    xxx         xxx       xxx            xxx        xxx    xxx      xxx      &se_bslh ___
+                                 ___         ___       ___            ___        xxx    ___
+            >;
+        };
+
+
+        sym_layer_us {
+// ----------------------------------------------------------------------------------------
+// | TAB  | 1 ! | 2 @ | 3 # | 4 $ | 5 % |    | 6 ^ | 7 & | 8 * | 9 ( | 0 ) | - _  |
+// | EXT2 |     |     |     |     |     |    |     |     |     | [ { | ] } | ` ~  |
+// | SHFT |     |     |     |     |     |    |     |     |     |     | \ | | SHFT |
+//                    | GUI |     | SPC |    | ENT | XXX | ALT |
+            bindings = <
+   ___        &kp N1 &kp N2 &kp N3 &kp N4 &kp N5      &kp N6 &kp N7 &kp N8 &kp N9   &kp N0   &kp MINUS
+   &mo L_EXT2 xxx    xxx    xxx    xxx    xxx         xxx    xxx    xxx    &kp LBKT &kp RBKT &kp GRAVE
+   ___        xxx    xxx    xxx    xxx    xxx         xxx    xxx    xxx    xxx      &kp BSLH ___
+                            ___    ___    ___         ___    xxx    ___
+            >;
+        };
+
+        ext1_layer {
+// -----------------------------------------------------------------------------------------
+// | TAB  | Esc   | WhUp   | GoBack | GoFwd  |        |    | Home   | PgDown | PgUp  | End   | Del  | Print |
+// | XXX  | Back  | WhDown |        |        |        |    | Left   | Down   | Up    | Right | Back | Esc   |
+// | SHFT |       |        |        |        |        |    | Undo   | Redo   |       |       | Del  |       |
+//                         | GUI    | CTRL   | Enter  |    | Enter  | EXT2   | L ALT |
+            bindings = <
+   ___ &kp ESC  &kp K_SCROLL_UP   &kp C_AC_BACK &kp C_AC_FORWARD xxx          &kp HOME &kp PG_DN  &kp PG_UP &kp END   &kp DEL  &kp PSCRN
+   xxx &kp BSPC &kp K_SCROLL_DOWN xxx           xxx              xxx          &kp LEFT &kp DOWN   &kp UP    &kp RIGHT &kp BSPC &kp ESC
+   ___ xxx      xxx               xxx           xxx              xxx          &kp UNDO &kp K_REDO xxx       xxx       &kp DEL  ___
+                                  ___           ___              &kp RET      ___      &mo L_EXT2 ___
+            >;
+        };
+
+        ext2_layer {
+// -----------------------------------------------------------------------------------------
+// | TAB  | F1    | F2     | F3     | F4     | F5     |    | F6       | F7       | F8     | F9      | F10  |       |
+// | XXX  |       |        |        |        |        |    | Vol Mute | Vol Down | Vol Up | F11     | F12  |       |
+// | SHFT |       |        |        |        |        |    | Bri Max  | Bri Down | Bri Up | Bri Min |      |       |
+//                         | GUI    | CTRL   | Enter  |    | Enter    | XXX      | L ALT |
+            bindings = <
+   ___ &kp F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6     &kp F7       &kp F8       &kp F9  &kp F10 xxx
+   xxx xxx    xxx    xxx    xxx    xxx          &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp F11 &kp F12 xxx
+   ___ xxx    xxx    xxx    xxx    xxx          xxx        &kp C_BRI_DN &kp C_BRI_UP xxx     xxx     ___
+                     ___    ___    ___          ___        xxx          ___
+            >;
+        };
+
         zmk_layer {
 // -----------------------------------------------------------------------------------------
 // | XXX  | BT 0  | BT 1   | BT 2   | BT 3   | BT 4   |        |       |           |           |      |      |      |
-// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SI WIN | To SI WIN |      |      |      |
+// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SE WIN | To SE WIN |      |      |      |
 // |      |       |        |        |        | Bootl  |        |       |           |           |      |      |      |
 //                         |        |        |        |        |       |           |           |
             bindings = <
    xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
-   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           xxx         xxx             xxx             xxx xxx xxx
+   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           &to US_BASE &to SE_BASE_LIN &to SE_BASE_WIN xxx xxx xxx
    xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
                                  xxx              xxx               xxx              xxx         xxx             xxx
             >;

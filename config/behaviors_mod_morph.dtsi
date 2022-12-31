@@ -1,0 +1,168 @@
+// Behaviors to support US like symbols when host layoust is SI
+
+// ; :
+se_semi: si-semicolon-colon {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SEMI_COLO";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SEMI>, <&kp SE_COLON>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// = +
+se_equal: si-equal-plus {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_EQUAL_PLUS";
+  #binding-cells = <0>;
+  bindings = <&kp SE_EQUAL>, <&kp SE_PLUS>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ' "
+se_sqt: si-sqt-dqt {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SQT_DQT";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SQT>, <&kp SE_DQT>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// , <
+se_comma: si-comma-lt {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_COMMA_LT";
+  #binding-cells = <0>;
+  bindings = <&kp SE_COMMA>, <&kp SE_LT>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// . >
+se_dot: si-dot-gt {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_DOT_GT";
+  #binding-cells = <0>;
+  bindings = <&kp SE_DOT>, <&kp SE_GT>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// / ?
+se_fslh: si-fslh-qmark {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_FSLK_QMARK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_FSLH>, <&kp SE_QMARK>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// 2 @
+se_n2: si-2-at {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N2_AT";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N2>, <&kp SE_AT>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// 6 ^
+se_n6_lin: si-6-caret-lin {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N6_CARET_LIN";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N6>, <&kp LS(SE_CARET)>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+se_n6_win: si-6-caret-win {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N6_CARET_WIN";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N6>, <&kp SE_CARET>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// 7 &
+se_n7: si-7-amps {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N7_AMPS";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N7>, <&kp SE_AMPS>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// 8 *
+se_n8: si-8-astrk {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N8_ASTRK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N8>, <&kp SE_ASTRK>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// 9 (
+se_n9: si-9-lpar {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N9_LPAR";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N9>, <&kp SE_LPAR>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;SI_
+};
+
+// 0 )
+se_n0: si-0-rpar {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_N0_RPAR";
+  #binding-cells = <0>;
+  bindings = <&kp SE_N0>, <&kp SE_RPAR>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// € °
+se_euro: si-euro-rnga {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_EURO_RNGA";
+  #binding-cells = <0>;
+  bindings = <&kp SE_EURO>, <&kp SE_RNGA>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// [ {
+se_lbkt: si-lbkt-lbrc {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_LBKT_LBRC";
+  #binding-cells = <0>;
+  bindings = <&kp SE_LBKT>, <&kp SE_LBRC>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ] }
+se_rbkt: si-rbkt-rbrc {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_RBKT_RBRC";
+  #binding-cells = <0>;
+  bindings = <&kp SE_RBKT>, <&kp SE_RBRC>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ` ~
+se_grave_lin: si-grave-tilde-lin {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_GRAVE_TILDE_LIN";
+  #binding-cells = <0>;
+  bindings = <&kp LS(SE_GRAVE)>, <&kp LS(SE_TILDE)>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+se_grave_win: si-grave-tilde_win {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_GRAVE_TILDE_WIN";
+  #binding-cells = <0>;
+  bindings = <&kp SE_GRAVE>, <&kp SE_TILDE>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// \ |
+se_bslh: si-bslh-pipe {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_BSLH_PIPE";
+  #binding-cells = <0>;
+  bindings = <&kp SE_BSLH>, <&kp SE_PIPE>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
