@@ -14,7 +14,7 @@ se_equal: si-equal-plus {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_EQUAL_PLUS";
   #binding-cells = <0>;
-  bindings = <&kp SE_EQUAL>, <&kp SE_PLUS>;
+  bindings = <&kp SE_EQL>, <&kp SE_PLUS>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -23,7 +23,7 @@ se_sqt: si-sqt-dqt {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_SQT_DQT";
   #binding-cells = <0>;
-  bindings = <&kp SE_SQT>, <&kp SE_DQT>;
+  bindings = <&kp SE_ADIA>, <&kp SE_DQUO>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -32,7 +32,7 @@ se_comma: si-comma-lt {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_COMMA_LT";
   #binding-cells = <0>;
-  bindings = <&kp SE_COMMA>, <&kp SE_LT>;
+  bindings = <&kp SE_COMM>, <&kp SE_LABK>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -41,7 +41,7 @@ se_dot: si-dot-gt {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_DOT_GT";
   #binding-cells = <0>;
-  bindings = <&kp SE_DOT>, <&kp SE_GT>;
+  bindings = <&kp SE_DOT>, <&kp SE_RABK>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -50,7 +50,7 @@ se_fslh: si-fslh-qmark {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_FSLK_QMARK";
   #binding-cells = <0>;
-  bindings = <&kp SE_FSLH>, <&kp SE_QMARK>;
+  bindings = <&kp SE_SLSH>, <&kp SE_QUES>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -68,14 +68,14 @@ se_n6_lin: si-6-caret-lin {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N6_CARET_LIN";
   #binding-cells = <0>;
-  bindings = <&kp SE_N6>, <&kp LS(SE_CARET)>;
+  bindings = <&kp SE_N6>, <&kp SE_CIRC>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 se_n6_win: si-6-caret-win {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N6_CARET_WIN";
   #binding-cells = <0>;
-  bindings = <&kp SE_N6>, <&kp SE_CARET>;
+  bindings = <&kp SE_N6>, <&kp SE_DIAE>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -84,7 +84,7 @@ se_n7: si-7-amps {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N7_AMPS";
   #binding-cells = <0>;
-  bindings = <&kp SE_N7>, <&kp SE_AMPS>;
+  bindings = <&kp SE_N7>, <&kp SE_AMPR>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -93,7 +93,7 @@ se_n8: si-8-astrk {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N8_ASTRK";
   #binding-cells = <0>;
-  bindings = <&kp SE_N8>, <&kp SE_ASTRK>;
+  bindings = <&kp SE_N8>, <&kp SE_ASTR>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -102,8 +102,8 @@ se_n9: si-9-lpar {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N9_LPAR";
   #binding-cells = <0>;
-  bindings = <&kp SE_N9>, <&kp SE_LPAR>;
-  mods = <(MOD_LSFT|MOD_RSFT)>;SI_
+  bindings = <&kp SE_N9>, <&kp SE_LPRN>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
 // 0 )
@@ -111,7 +111,7 @@ se_n0: si-0-rpar {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_N0_RPAR";
   #binding-cells = <0>;
-  bindings = <&kp SE_N0>, <&kp SE_RPAR>;
+  bindings = <&kp SE_N0>, <&kp SE_RPRN>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -120,7 +120,7 @@ se_euro: si-euro-rnga {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_EURO_RNGA";
   #binding-cells = <0>;
-  bindings = <&kp SE_EURO>, <&kp SE_RNGA>;
+  bindings = <&kp SE_EURO>, <&kp SE_ASTR>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -129,7 +129,7 @@ se_lbkt: si-lbkt-lbrc {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_LBKT_LBRC";
   #binding-cells = <0>;
-  bindings = <&kp SE_LBKT>, <&kp SE_LBRC>;
+  bindings = <&kp SE_LBRC>, <&kp SE_LCBR>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -138,7 +138,7 @@ se_rbkt: si-rbkt-rbrc {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_RBKT_RBRC";
   #binding-cells = <0>;
-  bindings = <&kp SE_RBKT>, <&kp SE_RBRC>;
+  bindings = <&kp SE_RBRC>, <&kp SE_RCBR>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -147,14 +147,14 @@ se_grave_lin: si-grave-tilde-lin {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_GRAVE_TILDE_LIN";
   #binding-cells = <0>;
-  bindings = <&kp LS(SE_GRAVE)>, <&kp LS(SE_TILDE)>;
+  bindings = <&kp LS(SE_GRAVE)>, <&kp LS(SE_TILD)>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 se_grave_win: si-grave-tilde_win {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_GRAVE_TILDE_WIN";
   #binding-cells = <0>;
-  bindings = <&kp SE_GRAVE>, <&kp SE_TILDE>;
+  bindings = <&kp SE_GRAVE>, <&kp SE_TILD>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
 
@@ -163,6 +163,6 @@ se_bslh: si-bslh-pipe {
   compatible = "zmk,behavior-mod-morph";
   label = "SE_BSLH_PIPE";
   #binding-cells = <0>;
-  bindings = <&kp SE_BSLH>, <&kp SE_PIPE>;
+  bindings = <&kp SE_BSLS>, <&kp SE_PIPE>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
