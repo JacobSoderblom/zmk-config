@@ -46,7 +46,7 @@
 #define SE_N8 N8        // 8
 #define SE_N9 N9        // 9
 #define SE_N0 N0        // 0
-#define SE_PLUS EQUAL   // +
+#define SE_PLUS MINUS   // +
 #define SE_ACUT RA(SE_N9)   // ´ (dead)
 // Row 2
 #define SE_Q    Q    // Q
