@@ -102,16 +102,16 @@
  */
 // Row 1
 #define SE_HALF LS(SE_SECT) // ½
-#define SE_EXLM LS(SE_1)    // !
-#define SE_DQUO LS(SE_2)    // "
-#define SE_HASH LS(SE_3)    // #
-#define SE_CURR LS(SE_4)    // ¤
-#define SE_PERC LS(SE_5)    // %
-#define SE_AMPR LS(SE_6)    // &
-#define SE_SLSH LS(SE_7)    // /
-#define SE_LPRN LS(SE_8)    // (
-#define SE_RPRN LS(SE_9)    // )
-#define SE_EQL  LS(SE_0)    // =
+#define SE_EXLM LS(SE_N1)    // !
+#define SE_DQUO LS(SE_N2)    // "
+#define SE_HASH LS(SE_N3)    // #
+#define SE_CURR LS(SE_N4)    // ¤
+#define SE_PERC LS(SE_N5)    // %
+#define SE_AMPR LS(SE_N6)    // &
+#define SE_SLSH LS(SE_N7)    // /
+#define SE_LPRN LS(SE_N8)    // (
+#define SE_RPRN LS(SE_N9)    // )
+#define SE_EQL  LS(SE_N0)    // =
 #define SE_QUES LS(SE_PLUS) // ?
 #define SE_GRV  LS(SE_ACUT) // ` (dead)
 // Row 2
