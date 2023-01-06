@@ -135,6 +135,7 @@
 / {
 
     behaviors {
+        #include "behaviors_mod_morph.dtsi"
 
         shft_caps: tap_dance_shift_caps_lock_toggle {
             compatible = "zmk,behavior-tap-dance";
@@ -155,7 +156,7 @@ base_layer_se_lin {
 // | SHFT |  Z  |  X  |  C  |  D   |  V  |    |  K  |  H   | , < | . > | / ? | SHFT |
 //                    | GUI | CTRL | SPC |    | ENT | SYM  | ALT |
             bindings = <
-   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_F &kp SE_P  &kp SE_B    &kp SE_J &kp SE_L       &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
+   TAB_L_ZMK  &kp SE_Q &kp SE_W &kp SE_F &kp SE_P  &kp SE_B    &kp SE_J &kp SE_L       &kp SE_U    &kp SE_Y   &se_scln     &kp SE_ARNG
    &mo L_EXT1 &kp SE_A &kp SE_R &kp SE_S &kp SE_T  &kp SE_G    &kp SE_M &kp SE_N       &kp SE_E    &kp SE_I   &kp SE_O     &kp SE_ADIA
    &shft_caps &kp SE_Z &kp SE_X &kp SE_C &kp SE_D  &kp SE_V    &kp SE_K &kp SE_H       &kp SE_COMM &kp SE_DOT &kp SE_MINS &shft_caps
                                 &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BACKSPACE  &mo SE_SYM_LIN
