@@ -47,7 +47,7 @@
 #define SE_N9 N9        // 9
 #define SE_N0 N0        // 0
 #define SE_PLUS MINUS   // +
-#define SE_ACUT RA(SE_N9)   // ´ (dead)
+#define SE_ACUT EQUAL   // ´ (dead)
 // Row 2
 #define SE_Q    Q    // Q
 #define SE_W    W    // W
@@ -72,20 +72,20 @@
 #define SE_K    K    // K
 #define SE_L    L    // L
 #define SE_ODIA SEMI // Ö
-#define SE_ADIA SQT // Ä
+#define SE_ADIA SQT  // Ä
 #define SE_QUOT NUHS // '
 // Row 4
-#define SE_LABK NUBS // <
-#define SE_Z    Z    // Z
-#define SE_X    X    // X
-#define SE_C    C    // C
-#define SE_V    V    // V
-#define SE_B    B    // B
-#define SE_N    N    // N
-#define SE_M    M    // M
+#define SE_LABK NUBS  // <
+#define SE_Z    Z     // Z
+#define SE_X    X     // X
+#define SE_C    C     // C
+#define SE_V    V     // V
+#define SE_B    B     // B
+#define SE_N    N     // N
+#define SE_M    M     // M
 #define SE_COMM COMMA // ,
-#define SE_DOT  DOT  // .
-#define SE_MINS FSLH // -
+#define SE_DOT  DOT   // .
+#define SE_MINS FSLH  // -
 
 /* Shifted symbols
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
@@ -101,7 +101,7 @@
  * └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
  */
 // Row 1
-#define SE_HALF LS(SE_SECT) // ½
+#define SE_HALF LS(SE_SECT)  // ½
 #define SE_EXLM LS(SE_N1)    // !
 #define SE_DQUO LS(SE_N2)    // "
 #define SE_HASH LS(SE_N3)    // #
@@ -112,8 +112,8 @@
 #define SE_LPRN LS(SE_N8)    // (
 #define SE_RPRN LS(SE_N9)    // )
 #define SE_EQL  LS(SE_N0)    // =
-#define SE_QUES LS(SE_PLUS) // ?
-#define SE_GRV  LS(SE_ACUT) // ` (dead)
+#define SE_QUES LS(SE_MINS)  // ?
+#define SE_GRV  LS(SE_ACUT)  // ` (dead)
 // Row 2
 #define SE_CIRC LS(SE_DIAE) // ^ (dead)
 // Row 3
