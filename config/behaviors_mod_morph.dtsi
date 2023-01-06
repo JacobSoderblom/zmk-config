@@ -1,0 +1,10 @@
+// Behaviors to support US like symbols when host layoust is SE
+
+// ; :
+se_scln: se-scln-coln {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SCLN_COLN";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SCLN>, <&kp SE_COLN>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
