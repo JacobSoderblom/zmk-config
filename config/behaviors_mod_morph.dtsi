@@ -8,3 +8,48 @@ se_scln: se-scln-coln {
   bindings = <&kp SE_SCLN>, <&kp SE_COLN>;
   mods = <(MOD_LSFT|MOD_RSFT)>;
 };
+
+// = +
+se_eql: se-eql-plus {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_EQL_PLUS";
+  #binding-cells = <0>;
+  bindings = <&kp SE_EQL>, <&kp SE_PLUS>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// ' "
+se_quot: se-quot-dquo {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_QUOT_DQUO";
+  #binding-cells = <0>;
+  bindings = <&kp SE_QUOT>, <&kp SE_DQUO>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// , <
+se_comm: se-comm-labk {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_COMM_LABK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_COMM>, <&kp SE_LABK>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// . >
+se_dot: se-dot_rabk {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_DOT_RABK";
+  #binding-cells = <0>;
+  bindings = <&kp SE_DOT>, <&kp SE_RABK>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
+
+// / ?
+se_slsh: se-slsh-ques {
+  compatible = "zmk,behavior-mod-morph";
+  label = "SE_SLSH_QUES";
+  #binding-cells = <0>;
+  bindings = <&kp SE_SLSH>, <&kp SE_QUES>;
+  mods = <(MOD_LSFT|MOD_RSFT)>;
+};
