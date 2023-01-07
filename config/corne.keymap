@@ -199,7 +199,7 @@
 //                         |        |        |        |        |       |           |           |
             bindings = <
    xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
-   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           &to US_BASE &to SE_BASE_LIN &to SE_BASE_WIN xxx xxx xxx
+   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           &to US_BASE &to SE_BASE_LIN xxx             xxx xxx xxx
    xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
                                  xxx              xxx               xxx              xxx         xxx             xxx
             >;
