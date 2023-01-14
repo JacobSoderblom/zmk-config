@@ -127,6 +127,15 @@
     debounce-release-ms = <4>;  // Default is 5 ms
 };
 
+&lt {
+	flavor = "tap-preferred";
+	tapping-term-ms = <200>;
+	};
+&mt { 
+	flavor = "tap-preferred";
+	tapping-term-ms = <200>;
+	};
+
 / {
 
     behaviors {
