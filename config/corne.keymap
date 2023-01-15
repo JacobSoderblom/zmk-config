@@ -113,7 +113,7 @@
 
 #define MAIN        0  // Main layer with SE layout
 #define LOWER       1  // Symbols layer, host layout: SE
-#define UPPER       2  // Base layer, host layout: SE
+#define RSE         2  // Base layer, host layout: SE
 #define L_ZMK       4  // ZMK layer
 
 
