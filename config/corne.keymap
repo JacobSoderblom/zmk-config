@@ -116,10 +116,6 @@
 #define UPPER       2  // Base layer, host layout: SE
 #define L_ZMK       4  // ZMK layer
 
-// Go to ZMK layer when holding TAB key
-// On tap: TAB
-// On hold: L_ZMK (ZMK layer)
-#define TAB_L_ZMK  &lt L_ZMK TAB
 
 // https://zmk.dev/docs/features/debouncing
 &kscan0 {
@@ -154,15 +150,15 @@
 
         main_layer_se {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  F  |  P   |  B  |    |  J  |  L   |  U  |  Y  |  Ö  |  Å   |
-// | EXT1 |  A  |  R  |  S  |  T   |  G  |    |  M  |  N   |  E  |  I  |  O  |  Ä   |
-// | SHFT |  Z  |  X  |  C  |  D   |  V  |    |  K  |  H   | , ; | . : | - _ | SHFT |
-//                    | GUI | CTRL | SPC |    | ENT | BACK | ALT |
+// | LGUI    |  Q  |  W  |  F      |  P       |  B  |          |  J  |  L   |  U   |  Y  |  Ö  |  Å     |
+// | CTRL/$  |  A  |  R  |  S      |  T       |  G  |          |  M  |  N   |  E   |  I  |  O  | CTRL/Ä |
+// | ALT/@   |  Z  |  X  |  C      |  D       |  V  |          |  K  |  H   | , ;  | . : | - _ | RALT/' |
+//                       | RES/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | RES/DEL |
             bindings = <
-   TAB_L_ZMK           &kp SE_Q &kp SE_W &kp SE_F &kp SE_P  &kp SE_B    &kp SE_J &kp SE_L       &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
-   &mt LCTRL LA(SE_N4) &kp SE_A &kp SE_R &kp SE_S &kp SE_T  &kp SE_G    &kp SE_M &kp SE_N       &kp SE_E    &kp SE_I   &kp SE_O     &kp SE_ADIA
-   &shft_caps          &kp SE_Z &kp SE_X &kp SE_C &kp SE_D  &kp SE_V    &kp SE_K &kp SE_H       &kp SE_COMM &kp SE_DOT &kp SE_MINS  &shft_caps
-                                         &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BACKSPACE  &mo LOWER
+   &kp LGUI            &kp SE_Q  &kp SE_W  &kp SE_F     &kp SE_P      &kp SE_B          &kp SE_J       &kp SE_L             &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
+   &mt LCTRL LA(SE_N4) &kp SE_A  &kp SE_R  &kp SE_S     &kp SE_T      &kp SE_G          &kp SE_M       &kp SE_N             &kp SE_E    &kp SE_I   &kp SE_O     &mt RCTRL SE_ADIA
+   &mt LALT SE_AT      &kp SE_Z  &kp SE_X  &kp SE_C     &kp SE_D      &kp SE_V          &kp SE_K       &kp SE_H             &kp SE_COMM &kp SE_DOT &kp SE_MINS  &mt RALT SE_QUOT
+                                           &lt RSE ESC  &mt LSHFT TAB &lt LOWER SPACE   &lt LOWER RET  &mt RSHFT BACKSPACE  &lt RSE DEL
             >;
         };
 
@@ -172,12 +168,12 @@
 // | TAB  |  F1  |  F2  |  F3  |  F4   |  F5  |    |  F6  |  F7   |  F8  |  F9  |  F10 |  F11 |
 // | EXT1 |   [  |   ]  |   }  |   |   |   \  |    |   /  |   ?   |   *  |   (  |   )  |   +  |
 // | SHFT |   1  |   2  |   3  |   4   |   5  |    |   6  |   7   |   8  |   9  |   0  | SHFT |
-//                      |  GUI |  CTRL |  SPC |    |  ENT |  SYM  |  ALT |
+//                      | ZMK/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | ZMK/DEL |
             bindings = <
-    TAB_L_ZMK   &kp F1      &kp F2        &kp F3       &kp F4        &kp F5      &kp F6         &kp F7         &kp F8       &kp F9      &kp F10      &kp F11
-    &kp SE_LCBR &kp SE_LBRC &kp SE_RBRC   &kp SE_RCBR  &kp SE_PIPE   &kp SE_BSLS &kp SE_SLSH    &kp SE_QUES    &kp SE_ASTR  &kp SE_LPRN &kp SE_RPRN  &kp SE_PLUS
-    &shft_caps  &kp SE_N1   &kp SE_N2     &kp SE_N3    &kp SE_N4     &kp SE_N5   &kp SE_N6      &kp SE_N7      &kp SE_N8    &kp SE_N9   &kp SE_N0    &shft_caps
-                            &kp LGUI      &kp LCTRL    &kp SPACE     &kp RET     &kp BACKSPACE  xxx
+    &kp LGUI          &kp F1      &kp F2       &kp F3         &kp F4        &kp F5            &kp F6         &kp F7         &kp F8       &kp F9      &kp F10      &kp F11
+    &mt LCTRL SE_LCBR &kp SE_LBRC &kp SE_RBRC  &kp SE_RCBR    &kp SE_PIPE   &kp SE_BSLS       &kp SE_SLSH    &kp SE_QUES    &kp SE_ASTR  &kp SE_LPRN &kp SE_RPRN  &mt RCTRL SE_PLUS
+    &mt LALT SE_ACUT  &kp SE_N1   &kp SE_N2    &kp SE_N3      &kp SE_N4     &kp SE_N5         &kp SE_N6      &kp SE_N7      &kp SE_N8    &kp SE_N9   &kp SE_N0    &mt RALT SE_GRV
+                                               &lt L_ZMK ESC  &mt LSHFT TAB &lt LOWER SPACE   &lt LOWER RET  &mt RSHFT BACKSPACE  &lt L_ZMK DEL
             >;
         };
 
@@ -200,13 +196,13 @@
         zmk_layer {
 // -----------------------------------------------------------------------------------------
 // | XXX  | BT 0  | BT 1   | BT 2   | BT 3   | BT 4   |        |       |           |           |      |      |      |
-// |      | BTCLR |        | EP ON  | EP OFF | Reset  |        | To US | To SE WIN | To SE WIN |      |      |      |
-// |      |       |        |        |        | Bootl  |        |       |           |           |      |      |      |
+// |      | BTCLR |        | EP ON  | EP OFF |        |        | Reset | Bootl     |           |      |      |      |
+// |      |       |        |        |        |        |        |       |           |           |      |      |      |
 //                         |        |        |        |        |       |           |           |
             bindings = <
    xxx &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3      &bt BT_SEL 4     xxx         xxx             xxx             xxx xxx xxx
-   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF &reset           xxx         xxx             xxx             xxx xxx xxx
-   xxx xxx          xxx          xxx              xxx               &bootloader      xxx         xxx             xxx             xxx xxx xxx
+   xxx &bt BT_CLR   xxx          &ext_power EP_ON &ext_power EP_OFF xxx              &reset      &bootloader     xxx             xxx xxx xxx
+   xxx xxx          xxx          xxx              xxx               xxx              xxx         xxx             xxx             xxx xxx xxx
                                  xxx              xxx               xxx              xxx         xxx             xxx
             >;
         };
