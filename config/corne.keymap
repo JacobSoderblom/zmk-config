@@ -117,6 +117,7 @@
 #define L_ZMK       4  // ZMK layer
 
 
+
 // https://zmk.dev/docs/features/debouncing
 &kscan0 {
     debounce-press-ms = <1>;    // Default is 5 ms
@@ -150,47 +151,48 @@
 
         main_layer_se {
 // -----------------------------------------------------------------------------------------
-// | LGUI    |  Q  |  W  |  F      |  P       |  B  |          |  J  |  L   |  U   |  Y  |  Ö  |  Å     |
-// | CTRL/$  |  A  |  R  |  S      |  T       |  G  |          |  M  |  N   |  E   |  I  |  O  | CTRL/Ä |
-// | ALT/@   |  Z  |  X  |  C      |  D       |  V  |          |  K  |  H   | , ;  | . : | - _ | RALT/' |
-//                       | RES/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | RES/DEL |
+// | GUI     |  Q  |  W  |  F      |  P       |  B  |    |  J  |  L   |  U   |  Y  |  Ö  |  Å     |
+// | CTRL/$  |  A  |  R  |  S      |  T       |  G  |    |  M  |  N   |  E   |  I  |  O  | CTRL/Ä |
+// | ALT/@   |  Z  |  X  |  C      |  D       |  V  |    |  K  |  H   | , ;  | . : | - _ | RALT/' |
+//                 | RES/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | RES/DEL |
             bindings = <
-   &kp LGUI         &kp SE_Q  &kp SE_W  &kp SE_F     &kp SE_P      &kp SE_B          &kp SE_J       &kp SE_L             &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
-   &mt LCTRL SE_DLR &kp SE_A  &kp SE_R  &kp SE_S     &kp SE_T      &kp SE_G          &kp SE_M       &kp SE_N             &kp SE_E    &kp SE_I   &kp SE_O     &mt RCTRL SE_ADIA
-   &mt LALT  SE_AT  &kp SE_Z  &kp SE_X  &kp SE_C     &kp SE_D      &kp SE_V          &kp SE_K       &kp SE_H             &kp SE_COMM &kp SE_DOT &kp SE_MINS  &mt RALT SE_QUOT
-                                        &lt RSE ESC  &mt LSHFT TAB &lt LOWER SPACE   &lt LOWER RET  &mt RSHFT BACKSPACE  &lt RSE DEL
+   &kp LGUI         &kp SE_Q  &kp SE_W  &kp SE_F     &kp SE_P      &kp SE_B      &kp SE_J       &kp SE_L             &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
+   &mt LCTRL SE_DLR &kp SE_A  &kp SE_R  &kp SE_S     &kp SE_T      &kp SE_G      &kp SE_M       &kp SE_N             &kp SE_E    &kp SE_I   &kp SE_O     &mt RCTRL SE_ADIA
+   &mt LALT  SE_AT  &kp SE_Z  &kp SE_X  &kp SE_C     &kp SE_D      &kp SE_V      &kp SE_K       &kp SE_H             &kp SE_COMM &kp SE_DOT &kp SE_MINS  &mt RALT SE_QUOT
+                                 &lt RSE ESC  &mt LSHFT TAB &lt LOWER SPACE      &lt LOWER RET  &mt RSHFT BACKSPACE  &lt RSE DEL
             >;
         };
 
 
         lower_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  F1  |  F2  |  F3  |  F4   |  F5  |    |  F6  |  F7   |  F8  |  F9  |  F10 |  F11 |
-// | EXT1 |   [  |   ]  |   }  |   |   |   \  |    |   /  |   ?   |   *  |   (  |   )  |   +  |
-// | SHFT |   1  |   2  |   3  |   4   |   5  |    |   6  |   7   |   8  |   9  |   0  | SHFT |
-//                      | ZMK/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | ZMK/DEL |
+// | GUI    |  F1  |  F2  |  F3  |  F4   |  F5  |    |  F6  |  F7   |  F8  |  F9  |  F10 |  F11   |
+// | CTRL/{ |   [  |   ]  |   }  |   |   |   \  |    |   /  |   ?   |   *  |   (  |   )  |   +    |
+// | ALT/´  |   1  |   2  |   3  |   4   |   5  |    |   6  |   7   |   8  |   9  |   0  | RALT/` |
+//             | ZMK/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | ZMK/DEL |
             bindings = <
-    &kp LGUI          &kp F1      &kp F2       &kp F3         &kp F4        &kp F5            &kp F6         &kp F7         &kp F8       &kp F9      &kp F10      &kp F11
-    &mt LCTRL SE_LCBR &kp SE_LBRC &kp SE_RBRC  &kp SE_RCBR    &kp SE_PIPE   &kp SE_BSLS       &kp SE_SLSH    &kp SE_QUES    &kp SE_ASTR  &kp SE_LPRN &kp SE_RPRN  &mt RCTRL SE_PLUS
-    &mt LALT SE_ACUT  &kp SE_N1   &kp SE_N2    &kp SE_N3      &kp SE_N4     &kp SE_N5         &kp SE_N6      &kp SE_N7      &kp SE_N8    &kp SE_N9   &kp SE_N0    &mt RALT SE_GRV
-                                               &lt L_ZMK ESC  &mt LSHFT TAB &lt LOWER SPACE   &lt LOWER RET  &mt RSHFT BACKSPACE  &lt L_ZMK DEL
+    &kp LGUI          &kp F1      &kp F2       &kp F3         &kp F4       &kp F5            &kp F6         &kp F7         &kp F8       &kp F9      &kp F10      &kp F11
+    &mt LCTRL SE_LCBR &kp SE_LBRC &kp SE_RBRC  &kp SE_RCBR    &kp SE_PIPE  &kp SE_BSLS       &kp SE_SLSH    &kp SE_QUES    &kp SE_ASTR  &kp SE_LPRN &kp SE_RPRN  &mt RCTRL SE_PLUS
+    &mt LALT SE_ACUT  &kp SE_N1   &kp SE_N2    &kp SE_N3      &kp SE_N4    &kp SE_N5         &kp SE_N6      &kp SE_N7      &kp SE_N8    &kp SE_N9   &kp SE_N0    &mt RALT SE_GRV
+                                        &lt L_ZMK ESC  &mt LSHFT TAB &lt LOWER SPACE         &lt LOWER RET  &mt RSHFT BACKSPACE  &lt L_ZMK DEL
             >;
         };
 
 
-        placeholder_layer {
+        raise_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB  |  Q  |  W  |  F  |  P   |  B  |    |  J  |  L   |  U  |  Y  |  Ö  |  Å   |
-// | EXT1 |  A  |  R  |  S  |  T   |  G  |    |  M  |  N   |  E  |  I  |  O  |  Ä   |
-// | SHFT |  Z  |  X  |  C  |  D   |  V  |    |  K  |  H   | , ; | . : | - _ | SHFT |
-//                    | GUI | CTRL | SPC |    | ENT | BACK | ALT |
+// | GUI    |   /  |   7  |   8  |   9   |  -  |    | VOLU | HOME | PRSC | PGUP | CUT   | S-CPY  |
+// | CTRL/= |   *  |   4  |   5  |   6   |  +  |    | MUT  | LEFT |  UP  | RGHT | PASTE | CTRL/" |
+// | ALT/.  |   0  |   1  |   2  |   3   |  ,  |    | VOLD | END  | DOWN | PGDN | COPY  | ALT/`  |
+//            | ZMK/ESC | SHFT/TAB | LOWER/SPC |    | LOWER/ENT  | SHFT/BACK  | ZMK/DEL |
             bindings = <
-   &kp LGUI           &kp SE_Q &kp SE_W &kp SE_F &kp SE_P  &kp SE_B    &kp SE_J &kp SE_L       &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
-   &mt LCTRL SE_DLR &kp SE_A &kp SE_R &kp SE_S &kp SE_T  &kp SE_G    &kp SE_M &kp SE_N       &kp SE_E    &kp SE_I   &kp SE_O     &kp SE_ADIA
-   &mt LALT SE_AT      &kp SE_Z &kp SE_X &kp SE_C &kp SE_D  &kp SE_V    &kp SE_K &kp SE_H       &kp SE_COMM &kp SE_DOT &kp SE_MINS  &mt LALT SE_AT
-                                         &kp LGUI &kp LCTRL &kp SPACE   &kp RET  &kp BACKSPACE  &mo LOWER
+    &kp LGUI          &kp SE_SLSH   &kp SE_7  &kp SE_N8  &kp SE_N9    &kp SE_MINS          &kp C_VOL_UP  &kp HOME   &kp PSCRN &kp PG_UP  &kp RG(SE_X)  &kp RA(RS(RG(SE_V)))
+    &mt LCTRL SE_LCBR &kp SE_ASTR   &kp SE_N4 &kp SE_N5  &kp SE_N6    &kp SE_PLUS          &kp C_MUTE    &kp LEFT   &kp DOWN  &kp RIGHT  &kp RG(SE_C)  &mt RCTRL SE_PLUS
+    &mt LALT SE_ACUT  &kp SE_N0     &kp SE_N1 &kp SE_N2  &kp SE_N3    &kp SE_COMM          &kp C_VOL_DN  &kp END    &kp UP    &kp PG_DN  &kp RG(SE_V)  &mt RALT SE_GRV
+                                         &lt L_ZMK ESC  &mt LSHFT TAB &lt LOWER SPACE      &lt LOWER RET  &mt RSHFT BACKSPACE  &lt L_ZMK DEL
             >;
         };
+
 
 
         zmk_layer {
