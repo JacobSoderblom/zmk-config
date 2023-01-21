@@ -6,5 +6,5 @@ comm-labk: se-comm-se-labk {
   label = "SE_COMM_SE_LABK";
   #binding-cells = <0>;
   bindings = <&kp SE_COMM>, <&kp SE_LABK>;
-  mods = <(MOD_LSFT|MOD_RSFT)>;
+  mods = <(MOD_LALT|MOD_RALT)>;
 };
