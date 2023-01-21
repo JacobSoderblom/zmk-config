@@ -55,7 +55,7 @@
             bindings = <
    &kp LGUI         &kp SE_Q  &kp SE_W  &kp SE_F     &kp SE_P      &kp SE_B      &kp SE_J       &kp SE_L             &kp SE_U    &kp SE_Y   &kp SE_ODIA  &kp SE_ARNG
    &mt LCTRL SE_DLR &kp SE_A  &kp SE_R  &kp SE_S     &kp SE_T      &kp SE_G      &kp SE_M       &kp SE_N             &kp SE_E    &kp SE_I   &kp SE_O     &mt RCTRL SE_ADIA
-   &mt LALT  SE_AT  &kp SE_Z  &kp SE_X  &kp SE_C     &kp SE_D      &kp SE_V      &kp SE_K       &kp SE_H             &comm-labk  &kp SE_DOT &kp SE_MINS  &mt RALT SE_QUOT
+   &mt LALT  SE_AT  &kp SE_Z  &kp SE_X  &kp SE_C     &kp SE_D      &kp SE_V      &kp SE_K       &kp SE_H             &comm_labk  &kp SE_DOT &kp SE_MINS  &mt RALT SE_QUOT
                                  &lt RSE ESC  &mt LSHFT TAB &lt LOWER SPACE      &lt LOWER RET  &mt RSHFT BACKSPACE  &lt RSE DEL
             >;
         };
