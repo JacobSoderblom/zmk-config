@@ -142,11 +142,11 @@
 #define SE_PND  RA(SE_N3)    // £
 #define SE_DLR  RA(SE_N4)    // $
 #define SE_EURO RA(SE_N5)    // €
-#define SE_LCBR RA(SE_N7)    // {
+#define SE_LCBR LS(N2)       // {
 #define SE_LBRC RA(SE_N8)    // [
 #define SE_RBRC RA(SE_N9)    // ]
-#define SE_RCBR LA(SE_DIAE)    // }
-#define SE_BSLS LA(LS(SE_N7)) // (backslash)
+#define SE_RCBR LA(RBKT)    // }
+#define SE_BSLS LS(N7) // (backslash)
 // Row 2
 #define SE_TILD RA(SE_DIAE) // ~ (dead)
 // Row 4
