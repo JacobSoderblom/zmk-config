@@ -1,7 +1,7 @@
 layout: {qmk_keyboard: corne_rotated, qmk_layout: LAYOUT_split_3x6_3}
 layers:
   default:
-  - {t: '$$mdi:keyboard-tab$$', type: held}
+  - $$mdi:keyboard-tab$$
   - Q
   - W
   - E
@@ -12,7 +12,7 @@ layers:
   - I
   - O
   - P
-  - {t: '$$mdi:keyboard-esc$$', type: held}
+  - $$mdi:keyboard-esc$$
   - $$mdi:apple-keyboard-control$$
   - A
   - S
@@ -130,7 +130,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   swedish:
-  - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
   - Q
   - W
   - E
@@ -141,7 +141,7 @@ layers:
   - I
   - O
   - P
-  - {t: '&s_a', type: held}
+  - '&s_a'
   - {t: '$$mdi:transfer$$', type: trans}
   - A
   - S
@@ -174,8 +174,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [0, 11]
-  k: {t: swedish, h: '$$mdi:gesture-tap-hold$$'}
+  k: swedish
   l: [default]
 - p: [0, 11]
-  k: {t: default, h: '$$mdi:gesture-tap-hold$$'}
+  k: default
   l: [swedish]
