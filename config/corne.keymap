@@ -19,6 +19,27 @@
     };
   };
 
+  macros {
+    s_a: s_a {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LA(A)>;
+      label = "S_A";
+    };
+    s_ae: s_ae {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LA(U) &kp A>;
+      label = "S_AE";
+    };
+    s_oe: s_oe {
+      compatible = "zmk,behavior-macro";
+      #binding-cells = <0>;
+      bindings = <&kp LA(U) &kp O>;
+      label = "S_OE";
+    };
+  };
+
   keymap {
     compatible = "zmk,keymap";
 
@@ -69,8 +90,8 @@
 
     swedish {
       bindings = <
-        &trans  &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P   &trans
-        &trans  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &trans  &trans
+        &trans  &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Y   &kp U   &kp I      &kp O    &kp P   &s_a
+        &trans  &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &s_oe   &s_ae
         &trans  &kp Z  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &kp COMMA  &kp DOT  &trans  &trans
                               &trans  &trans  &trans    &trans  &trans  &trans
       >;
