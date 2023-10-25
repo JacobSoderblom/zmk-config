@@ -141,7 +141,7 @@ layers:
   - I
   - O
   - P
-  - '&s_a'
+  - LA(W)
   - {t: '$$mdi:transfer$$', type: trans}
   - A
   - S
@@ -152,8 +152,8 @@ layers:
   - J
   - K
   - L
-  - '&s_oe'
-  - '&s_ae'
+  - LA(O)
+  - LA(A)
   - {t: '$$mdi:transfer$$', type: trans}
   - Z
   - X
