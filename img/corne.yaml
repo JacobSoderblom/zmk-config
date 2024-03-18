@@ -14,17 +14,17 @@ layers:
   - P
   - $$mdi:keyboard-esc$$
   - $$mdi:apple-keyboard-control$$
-  - A
-  - S
-  - D
-  - F
-  - G
+  - {t: A, h: LEFT GUI}
+  - {t: S, h: LEFT ALT}
+  - {t: D, h: LEFT SHIFT}
+  - {t: F, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: G, h: RIGHT ALT}
   - H
-  - J
-  - K
-  - L
-  - {t: ;, s: ':'}
-  - {t: '''', h: LC(LS(LALT)), s: '"'}
+  - {t: J, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: K, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: L, h: RIGHT ALT}
+  - {t: ;, h: RIGHT GUI, s: ':'}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:apple-keyboard-shift$$
   - Z
   - X
@@ -39,8 +39,8 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - LGUI
   - below
-  - {t: RET, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: '$$mdi:keyboard-space$$', h: LC(LS(LA(LGUI)))}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - $$mdi:keyboard-space$$
   - {t: '$$mdi:backspace$$', type: backspace}
   - above
   below:
@@ -82,8 +82,8 @@ layers:
   - $$mdi:apple-keyboard-shift$$
   - LGUI
   - {type: held}
-  - {t: RET, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: '$$mdi:keyboard-space$$', h: LC(LS(LA(LGUI)))}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:transfer$$', type: trans}
   above:
@@ -174,8 +174,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
 combos:
 - p: [0, 11]
-  k: swedish
+  k: {t: swedish, h: toggle}
   l: [default]
 - p: [0, 11]
-  k: default
+  k: {t: default, h: toggle}
   l: [swedish]
